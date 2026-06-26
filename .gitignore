@@ -1,6 +1,38 @@
+# Python
 __pycache__/
 *.pyc
 *.pyo
 .venv/
 env/
+venv/
 *.egg-info/
+
+# Environment
+.env
+
+# Dataset & weights (too large for git)
+dataset/
+*.pt
+*.pth
+*.weights
+
+# YOLO training outputs
+runs/
+
+# DB
+*.db
+*.sqlite
+
+# Snapshots / media
+snapshots/
+*.mp4
+*.avi
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+demo_video.mp4
+Construction-Site-Safety-27/
