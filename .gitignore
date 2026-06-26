@@ -36,3 +36,10 @@ Thumbs.db
 .vscode/
 demo_video.mp4
 Construction-Site-Safety-27/
+# Model runs (huge)
+runs/
+
+# Test scripts (optional, up to you)
+sanity_output.jpg
+test_model.py
+sanity_test.py
