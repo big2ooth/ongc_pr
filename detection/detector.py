@@ -23,7 +23,7 @@ CLASS_NAMES = {
     7: "Safety Vest"
 }
 CLASS_CONF = {
-    0: 0.25,   # Hardhat — high threshold to avoid cap false positives
+    0: 0.30,   # Hardhat — high threshold to avoid cap false positives
     2: 0.15,   # NO-Hardhat
     4: 0.25,   # NO-Safety Vest
     5: 0.40,   # Person

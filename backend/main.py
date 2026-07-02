@@ -6,7 +6,7 @@ from datetime import datetime
 from typing import List
 import json
 
-# ─── App setup ─────────────────────────────────────────────────────────────────
+# ─── App setup ───
 app = FastAPI(title="SafeWatch API", version="1.0.0")
 
 app.add_middleware(
@@ -18,7 +18,7 @@ app.add_middleware(
 
 DB_PATH = "backend/violations.db"
 
-# ─── WebSocket manager ─────────────────────────────────────────────────────────
+# ─── WebSocket manager ───
 class ConnectionManager:
     def __init__(self):
         self.active: List[WebSocket] = []
@@ -39,14 +39,13 @@ class ConnectionManager:
 
 manager = ConnectionManager()
 
-# ─── DB helper ─────────────────────────────────────────────────────────────────
+# ─── DB helper ────
 def get_db():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 
-# ─── REST endpoints ────────────────────────────────────────────────────────────
-
+# ─── REST endpoints ────
 @app.get("/")
 def root():
     return {"status": "SafeWatch API running"}
@@ -144,7 +143,7 @@ def get_zones():
     return [r[0] for r in zones]
 
 
-# ─── WebSocket endpoint ────────────────────────────────────────────────────────
+# ─── WebSocket endpoint ────
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await manager.connect(websocket)
@@ -180,7 +179,7 @@ async def websocket_endpoint(websocket: WebSocket):
         manager.disconnect(websocket)
 
 
-# ─── Run ───────────────────────────────────────────────────────────────────────
+# ─── Run ───
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True, app_dir="backend")
