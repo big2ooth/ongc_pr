@@ -5,6 +5,11 @@ import asyncio
 from datetime import datetime
 from typing import List
 import json
+import os
+
+# Get absolute path to the database
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(BASE_DIR, "backend", "violations.db")
 
 # ─── App setup ───
 app = FastAPI(title="SafeWatch API", version="1.0.0")
@@ -15,8 +20,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-DB_PATH = "backend/violations.db"
 
 # ─── WebSocket manager ───
 class ConnectionManager:
